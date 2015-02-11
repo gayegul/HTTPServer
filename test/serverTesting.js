@@ -22,19 +22,15 @@ describe('http server', function() {
 	});
 
 	it('should respond to time request', function(done) {
-		var minutes = 1000 * 60;
-		var hours = minutes * 60;
-		var days = hours * 24;
-		var years = days * 365;
 		var time = new Date();
-		var timeMs = time.getTime();
-		var timeFinal = Math.round(timeMs/years);
+		var hours = time.getHours();
+		var minutes = time.getMinutes();
 		chai.request(server)
 		.get('/time')
 		.end(function(err, res) {
 			expect(err).to.eql(null);
 			expect(res).to.have.status(200);
-			expect(res.text).to.be(timeFinal);
+			expect(res.text).to.be.at.least('Time is: ' + hours + ':' + minutes + '\n');
 			done();
 		});
 	});
