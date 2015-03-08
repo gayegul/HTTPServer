@@ -34,7 +34,7 @@ describe('http server', function() {
 		.end(function(err, res) {
 			expect(err).to.eql(null);
 			expect(res).to.have.status(200);
-			expect(res.text).to.be(timeFinal);
+			expect(res.text).to.eql(timeFinal + '\n');
 			done();
 		});
 	});
