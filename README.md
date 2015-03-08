@@ -1,2 +1,2 @@
 # HTTPServer
-A simple HTTP server and chai-http testing
+A simple HTTP server with chai-http testing
